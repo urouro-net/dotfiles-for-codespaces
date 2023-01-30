@@ -1,0 +1,41 @@
+[user]
+	name = Kenta Nakai
+	email = kenta.nakai@urouro.net
+[color]
+	ui = auto
+[alias]
+	aa = add --all
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	b = branch -a
+	cm = commit
+	co = checkout
+	current-branch = rev-parse --abbrev-ref HEAD
+	di = diff
+	f = fetch
+	find = "!git ls-files | grep -i"
+	fixup = "commit --fixup=HEAD"
+	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	gra = log --graph --all --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	grd = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Cresetc)%ci %Creseta)%ai %Cblue%cn %Cred%d %Creset%s'
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	pl = pull
+	po = push origin
+	ps = push
+	st = status
+	sts = stash
+	stsl = stash list
+	stss = stash save -u
+	stsp = stash pop
+	sw = switch
+	swb = !"git branch | tr -d '* ' | grep -v -e '->' | peco | sed -e 's+remotes/[^/]*/++g' | xargs git switch"
+	trash = stash save -u 'trash'
+	trashdrop = "!git stash save -u 'trash' && git stash drop"
+	refresh= !git fetch origin && git remote prune origin
+[merge]
+	ff = false
+[pull]
+	ff = only
+[rebase]
+	autosquash = true
+[init]
+	defaultBranch = main
